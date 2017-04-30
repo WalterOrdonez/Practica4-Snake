@@ -42,5 +42,21 @@ namespace Practica_Snake
             }
             return -1;
         }
+        public void modificarMarcas(String Nombre, int Nivel, int Puntos, int Tiempo)
+        {
+            int posicion = buscarUsuario(Nombre);
+            try
+            {
+                Usuario Actual;
+                Actual = (Usuario)Usuarios[posicion];
+                Actual.setPuntos(Puntos);
+                Actual.setTiempo(Tiempo);
+                Actual.setNivel(Nivel);
+            }
+            catch (ArgumentOutOfRangeException error)
+            {
+                Console.WriteLine("Usuarios({0}) is out of range.", posicion);
+            }
+        }
     }
 }
