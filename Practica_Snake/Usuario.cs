@@ -12,6 +12,7 @@ namespace Practica_Snake
         String pass;
         int nivel;
         int puntos;
+        int tiempo;
         public void setNombre(String nom)
         {
             this.nombre = nom;
@@ -27,6 +28,14 @@ namespace Practica_Snake
         public void setPuntos(int puntos)
         {
             this.puntos = puntos;
+        }
+        public void setTiempo(int Tiempo)
+        {
+            this.tiempo = Tiempo;
+        }
+        public int getTiempo()
+        {
+            return this.tiempo;
         }
         public int getPuntos()
         {
