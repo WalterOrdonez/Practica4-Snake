@@ -10,9 +10,12 @@ namespace Practica_Snake
     class Lista_Usuario 
     {
         ArrayList Usuarios;
+        Usuario Administrador;
         public Lista_Usuario()
         {
             Usuarios = new ArrayList();
+            Administrador.setNombre("Admin_ORGA");
+            Administrador.setPass("12345");
         }
         public void addUsuario(String Nombre, String Pass){
             Usuario nuevo=new Usuario();
