@@ -10,6 +10,8 @@ namespace Practica_Snake
     {
         String nombre;
         String pass;
+        int nivel;
+        int puntos;
         public void setNombre(String nom)
         {
             this.nombre = nom;
@@ -18,7 +20,22 @@ namespace Practica_Snake
         {
             this.pass = pas;
         }
-
+        public void setNivel(int niv)
+        {
+            this.nivel = niv;
+        }
+        public void setPuntos(int puntos)
+        {
+            this.puntos = puntos;
+        }
+        public int getPuntos()
+        {
+            return this.puntos;
+        }
+        public int getNivel()
+        {
+            return this.nivel;
+        }
         public String getNombre()
         {
             return this.nombre;
