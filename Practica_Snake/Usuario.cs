@@ -13,6 +13,7 @@ namespace Practica_Snake
         int nivel;
         int puntos;
         int tiempo;
+
         public void setNombre(String nom)
         {
             this.nombre = nom;

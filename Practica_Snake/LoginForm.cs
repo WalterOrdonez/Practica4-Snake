@@ -28,6 +28,8 @@ namespace Practica_Snake
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            ListaUsuarioSingleton lstUsuarioSingleton = ListaUsuarioSingleton.Instance;
+
             pnlfrmRegistro.Size = new Size(520, 405);
             pnlfrmRegistro.Location = new Point(0, 100);
             pnlfrmRegistro.Hide();

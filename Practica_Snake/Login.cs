@@ -29,5 +29,17 @@ namespace Practica_Snake
             caja.BackColor = Color.FromArgb(235, 82, 66);
         }
 
+        private void buttonSignIn_Click(object sender, EventArgs e)
+        {
+            Lista_Usuario lst = ListaUsuarioSingleton.Instance.LstUsuario;
+
+            if (lst.buscarUsuario(textBoxNombre.Text) >= 0)
+            {
+                MessageBox.Show("Usuario correcto");
+            }
+
+            textBoxNombre.Text = "";
+            textBoxPass.Text = "";
+        }
     }
 }

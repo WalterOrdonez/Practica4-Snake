@@ -13,6 +13,7 @@ namespace Practica_Snake
         ArrayList Puntuaciones;
         ArrayList Tiempos;
         Usuario Administrador;
+
         public Lista_Usuario()
         {
             Usuarios = new ArrayList();
