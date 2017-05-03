@@ -27,7 +27,7 @@ namespace Practica_Snake
         {
             try
             {
-                rectangleShape2.Width += 1;
+                rectangleShape2.Width += 3;
                 if (rectangleShape2.Width >= 436)
                 {
                     timerSplash.Stop();

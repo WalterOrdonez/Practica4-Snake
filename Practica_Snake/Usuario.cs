@@ -60,7 +60,7 @@ namespace Practica_Snake
         }
         public bool compararPass(String pass)
         {
-            return (this.pass.Equals(pass, StringComparison.OrdinalIgnoreCase));
+            return (this.pass.Equals(pass));
         }
     }
 }

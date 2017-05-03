@@ -14,6 +14,29 @@ namespace Practica_Snake
         ArrayList Tiempos;
         Usuario Administrador;
 
+        #region GETTERS Y SETTERS
+        public ArrayList _usuarios
+        {
+            get { return Usuarios; }
+            set { Usuarios = value; }
+        }
+        public ArrayList _puntuaciones
+        {
+            get { return Puntuaciones; }
+            set { Puntuaciones = value; }
+        }
+        public ArrayList _tiempos
+        {
+            get { return Tiempos; }
+            set { Tiempos = value; }
+        }
+        public Usuario _administrador
+        {
+            get { return Administrador; }
+            set { Administrador = value; }
+        }
+        #endregion
+
         public Lista_Usuario()
         {
             Usuarios = new ArrayList();
@@ -50,14 +73,31 @@ namespace Practica_Snake
             }
             return -1;
         }
+
+        public bool validarUsuario(string nombre, string pass)
+        {
+            int cod = buscarUsuario(nombre);
+
+            if (cod > 0)
+            {
+                if (((Usuario)Usuarios[cod]).compararPass(pass))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void ordenarTiempo()
         {
             Tiempos.Sort(new ComparaTiempos());
         }
+
         private void ordenarPuntos()
         {
             Puntuaciones.Sort(new ComparaPuntos());
         }
+
         public ArrayList generarReporteTiempo()
         {
             ordenarTiempo();
@@ -71,6 +111,7 @@ namespace Practica_Snake
             }
             return Tiempos;
         }
+
         public ArrayList generarReportePuntos()
         {
             ordenarPuntos();
@@ -84,6 +125,7 @@ namespace Practica_Snake
             }
             return Puntuaciones;
         }
+
         public void modificarMarcas(String Nombre, int Nivel, int Puntos, int Tiempo)
         {
             int posicion = buscarUsuario(Nombre);
@@ -100,7 +142,16 @@ namespace Practica_Snake
                 Console.WriteLine("Usuarios({0}) is out of range.", posicion);
             }
         }
+
+        public bool validarAdmin(string user, string pass)
+        {
+            if (Administrador.getNombre().Equals(user) && Administrador.getPass().Equals(pass))
+                return true;
+            else
+                return false;
+        }
     }
+
     public class ComparaTiempos : IComparer
     {
         public int Compare(object x, object y)
@@ -108,6 +159,7 @@ namespace Practica_Snake
             return ((Usuario)y).getTiempo() - ((Usuario)x).getTiempo();
         }
     }
+
     public class ComparaPuntos : IComparer
     {
         public int Compare(object x, object y)

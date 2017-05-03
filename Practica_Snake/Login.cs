@@ -20,22 +20,32 @@ namespace Practica_Snake
         private void EnterLabel(object sender, EventArgs e)
         {
             TextBox caja = (TextBox) sender;
-            caja.BackColor = Color.FromArgb(186, 54, 39);
+            caja.BackColor = Color.FromArgb(192, 57, 43);
         }
 
         private void LeaveTextBox(object sender, EventArgs e)
         {
             TextBox caja = (TextBox)sender;
-            caja.BackColor = Color.FromArgb(235, 82, 66);
+            caja.BackColor = Color.FromArgb(231, 76, 60);
         }
 
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
             Lista_Usuario lst = ListaUsuarioSingleton.Instance.LstUsuario;
 
-            if (lst.buscarUsuario(textBoxNombre.Text) >= 0)
+            if (lst.validarUsuario(textBoxNombre.Text,textBoxPass.Text))
             {
-                MessageBox.Show("Usuario correcto");
+                UsuarioForm u = new UsuarioForm();
+                u._id = lst.buscarUsuario(textBoxNombre.Text);
+                u.Show();
+            }
+            else if (lst.validarAdmin(textBoxNombre.Text, textBoxPass.Text))
+            {
+                AdministradorForm a = new AdministradorForm();
+                a.Show();
+            } else
+            {
+                MessageBox.Show("Usuario y/o Contraseña incorrecta");
             }
 
             textBoxNombre.Text = "";

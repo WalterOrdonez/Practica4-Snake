@@ -25,13 +25,13 @@ namespace Practica_Snake
         private void EnterLabel(object sender, EventArgs e)
         {
             TextBox caja = (TextBox)sender;
-            caja.BackColor = Color.FromArgb(186, 54, 39);
+            caja.BackColor = Color.FromArgb(192, 57, 43);
         }
 
         private void LeaveTextBox(object sender, EventArgs e)
         {
             TextBox caja = (TextBox)sender;
-            caja.BackColor = Color.FromArgb(235, 82, 66);
+            caja.BackColor = Color.FromArgb(231, 76, 60);
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
