@@ -14,7 +14,7 @@ namespace Practica_Snake
         {
             Thread hilo = new Thread(new ThreadStart(StartSplash));
             hilo.Start();
-            Thread.Sleep(7000);
+            Thread.Sleep(3000);
 
             InitializeComponent();
 
@@ -28,6 +28,8 @@ namespace Practica_Snake
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            ListaUsuarioSingleton lstUsuarioSingleton = ListaUsuarioSingleton.Instance;
+
             pnlfrmRegistro.Size = new Size(520, 405);
             pnlfrmRegistro.Location = new Point(0, 100);
             pnlfrmRegistro.Hide();
@@ -57,11 +59,12 @@ namespace Practica_Snake
             login.FormBorderStyle = FormBorderStyle.None;
             login.Dock = DockStyle.Fill;
             login.Show();
-            buttonLogin.BackColor = Color.FromArgb(235, 82, 66);
-            buttonRegistro.BackColor = Color.FromArgb(186, 56, 39);
+            buttonLogin.BackColor = Color.FromArgb(231, 76, 60);
+            buttonRegistro.BackColor = Color.FromArgb(192, 57, 43);
             pnlfrmLogin.Show();
             pnlfrmRegistro.Hide();
         }
+        
         private void registroC()
         {
             registro.TopLevel = false;
@@ -69,11 +72,17 @@ namespace Practica_Snake
             registro.FormBorderStyle = FormBorderStyle.None;
             registro.Dock = DockStyle.Fill;
             registro.Show();
-            buttonLogin.BackColor = Color.FromArgb(186, 56, 39);
+            buttonLogin.BackColor = Color.FromArgb(192, 57, 43);
             buttonRegistro.BackColor = Color.FromArgb(235, 82, 66);
             pnlfrmRegistro.Show();
             pnlfrmLogin.Hide();
         }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
         #endregion
+
     }
 }

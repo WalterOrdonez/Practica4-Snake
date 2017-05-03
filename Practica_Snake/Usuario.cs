@@ -13,6 +13,7 @@ namespace Practica_Snake
         int nivel;
         int puntos;
         int tiempo;
+
         public void setNombre(String nom)
         {
             this.nombre = nom;
@@ -59,7 +60,7 @@ namespace Practica_Snake
         }
         public bool compararPass(String pass)
         {
-            return (this.pass.Equals(pass, StringComparison.OrdinalIgnoreCase));
+            return (this.pass.Equals(pass));
         }
     }
 }

@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.rectangleShape2 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.rectangleShape1 = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.label2 = new System.Windows.Forms.Label();
             this.timerSplash = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -61,16 +61,6 @@
             this.shapeContainer1.TabIndex = 1;
             this.shapeContainer1.TabStop = false;
             // 
-            // rectangleShape1
-            // 
-            this.rectangleShape1.BackColor = System.Drawing.Color.White;
-            this.rectangleShape1.BorderColor = System.Drawing.Color.White;
-            this.rectangleShape1.BorderWidth = 5;
-            this.rectangleShape1.CornerRadius = 7;
-            this.rectangleShape1.Location = new System.Drawing.Point(23, 234);
-            this.rectangleShape1.Name = "rectangleShape1";
-            this.rectangleShape1.Size = new System.Drawing.Size(452, 27);
-            // 
             // rectangleShape2
             // 
             this.rectangleShape2.BackColor = System.Drawing.Color.White;
@@ -82,6 +72,16 @@
             this.rectangleShape2.Location = new System.Drawing.Point(31, 242);
             this.rectangleShape2.Name = "rectangleShape1";
             this.rectangleShape2.Size = new System.Drawing.Size(7, 12);
+            // 
+            // rectangleShape1
+            // 
+            this.rectangleShape1.BackColor = System.Drawing.Color.White;
+            this.rectangleShape1.BorderColor = System.Drawing.Color.White;
+            this.rectangleShape1.BorderWidth = 5;
+            this.rectangleShape1.CornerRadius = 7;
+            this.rectangleShape1.Location = new System.Drawing.Point(23, 234);
+            this.rectangleShape1.Name = "rectangleShape1";
+            this.rectangleShape1.Size = new System.Drawing.Size(452, 27);
             // 
             // label2
             // 
@@ -98,7 +98,7 @@
             // timerSplash
             // 
             this.timerSplash.Enabled = true;
-            this.timerSplash.Interval = 10;
+            this.timerSplash.Interval = 8;
             this.timerSplash.Tick += new System.EventHandler(this.timerSplash_Tick);
             // 
             // Form1
