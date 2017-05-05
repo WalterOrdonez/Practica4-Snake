@@ -45,7 +45,10 @@ namespace Practica_Snake
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
+            Tablero.Tablero tablero = new Tablero.Tablero();
 
+            tablero.setNivel(1);
+            tablero.enviarDatos();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
