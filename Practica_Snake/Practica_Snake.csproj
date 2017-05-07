@@ -76,7 +76,6 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablero\Nivel.cs" />
-    <Compile Include="Tablero\Nivel.cs" />
     <Compile Include="nodoSnake.cs" />
     <Compile Include="PortInterop.cs" />
     <Compile Include="Program.cs" />
