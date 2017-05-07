@@ -60,6 +60,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Juego.cs" />
     <Compile Include="ListaUsuarioSingleton.cs" />
     <Compile Include="Lista_Usuario.cs" />
     <Compile Include="Login.cs">
@@ -75,6 +76,8 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablero\Nivel.cs" />
+    <Compile Include="Tablero\Nivel.cs" />
+    <Compile Include="nodoSnake.cs" />
     <Compile Include="PortInterop.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +88,7 @@
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Tablero\Tablero.cs" />
+    <Compile Include="snake.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioForm.cs">
       <SubType>Form</SubType>
