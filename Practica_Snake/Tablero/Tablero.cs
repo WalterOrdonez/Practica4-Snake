@@ -76,7 +76,24 @@ namespace Practica_Snake.Tablero
         public void setComida(int x, int y)
         {
             tablero[x, y] = 0;
+            nuevaComida(-1, -1);
+        }
 
+        private void nuevaComida(int x, int y)
+        {
+            Random rnd = new Random();
+
+            x = rnd.Next(0, 11);
+            y = rnd.Next(0, 11);
+
+            if (tablero[x, y] == 1)
+            {
+                nuevaComida(x, y);
+            }
+            else
+            {
+                tablero[x, y] = 2;
+            }
         }
 
         public void enviarDatos()
