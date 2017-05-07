@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtNivel = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.lblTiempo = new System.Windows.Forms.Label();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -71,6 +73,7 @@
             this.txtNivel.ReadOnly = true;
             this.txtNivel.Size = new System.Drawing.Size(67, 29);
             this.txtNivel.TabIndex = 5;
+            this.txtNivel.TextChanged += new System.EventHandler(this.txtNivel_TextChanged);
             // 
             // lblNivel
             // 
@@ -152,6 +155,10 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // UsuarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,10 +176,12 @@
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "UsuarioForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UsuarioForm";
             this.Load += new System.EventHandler(this.UsuarioForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UsuarioForm_KeyDown_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +199,6 @@
         private System.Windows.Forms.Label lblTiempo;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Timer timer1;
     }
 }

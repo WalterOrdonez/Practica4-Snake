@@ -11,11 +11,13 @@ namespace Practica_Snake
         int x;
         int y;
         nodoSnake siguiente;
+        nodoSnake anterior;
         public nodoSnake()
         {
             x = 0;
             y = 0;
             siguiente = null;
+            anterior = null;
         }
         public void setX(int x)
         {
@@ -29,6 +31,10 @@ namespace Practica_Snake
         {
             this.siguiente = siguiente;
         }
+        public void setAnterior(nodoSnake anterior)
+        {
+            this.anterior = anterior;
+        }
         public int getX()
         {
             return this.x;
@@ -40,6 +46,10 @@ namespace Practica_Snake
         public nodoSnake getSiguiente()
         {
             return this.siguiente;
+        }
+        public nodoSnake getAnterior()
+        {
+            return this.anterior;
         }
     }
 }
