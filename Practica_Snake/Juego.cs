@@ -24,7 +24,7 @@ namespace Practica_Snake
             this.velocidad = 1000;
             this.tiempo = tiempo;
             this.puntos = 0;
-            this.nivel = 0;
+            this.nivel = 1;
             this.usuario = usuario;
             this.timer=timer;
             this.txtNivel = txtNivel;
@@ -106,6 +106,10 @@ namespace Practica_Snake
             }
             parar();
         }
+        public bool getGanador()
+        {
+            return this.ganador;
+        }
         public void Derecha(){
             serpiente.setDireccion(Snake.derecha);
             Console.WriteLine("Derecha");
@@ -134,10 +138,12 @@ namespace Practica_Snake
             {
                 case 10:
                     nivel = 2;
+                    tablero.setNivel(nivel);
                     txtNivel.Text = nivel.ToString();
                     break;
                 case 20:
                     nivel = 3;
+                    tablero.setNivel(nivel);
                     velocidad = 600;
                     Console.WriteLine("nivel 2");
                     txtNivel.Text = nivel.ToString();
