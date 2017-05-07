@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Practica_Snake
 {
     class Snake
@@ -25,7 +26,10 @@ namespace Practica_Snake
             get { return Ultimo; }
             set { Ultimo = value; }
         }
-        
+        public int getDireccion()
+        {
+            return this.direccion;
+        }
         public Snake()
         {
             Cabeza = new nodoSnake();

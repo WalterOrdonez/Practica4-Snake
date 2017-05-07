@@ -17,7 +17,10 @@ namespace Practica_Snake.Tablero
         {
             setNivel(1);
         }
-
+        public int[,] getTablero()
+        {
+            return this.tablero;
+        }
         public void setNivel(int nivel)
         {
             Nivel n = new Nivel();
