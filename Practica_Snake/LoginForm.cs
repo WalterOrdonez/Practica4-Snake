@@ -12,13 +12,14 @@ namespace Practica_Snake
 
         public LoginForm()
         {
+            /*
             Thread hilo = new Thread(new ThreadStart(StartSplash));
             hilo.Start();
             Thread.Sleep(3000);
-
+            */
             InitializeComponent();
 
-            hilo.Abort();
+            //hilo.Abort();
         }
 
         private void StartSplash()

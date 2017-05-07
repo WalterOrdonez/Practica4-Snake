@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Boton
+namespace Practica_Snake
 {
     class PortAccess
     {

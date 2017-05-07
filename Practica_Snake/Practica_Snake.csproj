@@ -53,6 +53,7 @@
     <Compile Include="AdministradorForm.Designer.cs">
       <DependentUpon>AdministradorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tablero\Coordenadas.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +75,8 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tablero\Nivel.cs" />
+    <Compile Include="Tablero\Nivel.cs" />
     <Compile Include="nodoSnake.cs" />
     <Compile Include="PortInterop.cs" />
     <Compile Include="Program.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="Registro.Designer.cs">
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tablero\Tablero.cs" />
     <Compile Include="snake.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="UsuarioForm.cs">
@@ -132,6 +136,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
