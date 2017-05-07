@@ -9,10 +9,23 @@ namespace Practica_Snake
         public const int arriba = 2;
         public const int izquierda = 3;
         public const int abajo = 4;
+
+        int direccion;
         
         nodoSnake Cabeza;
         nodoSnake Ultimo;
-        int direccion;
+
+        public nodoSnake _cabeza
+        {
+            get { return Cabeza; }
+            set { Cabeza = value; }
+        }
+
+        public nodoSnake _ultimo
+        {
+            get { return Ultimo; }
+            set { Ultimo = value; }
+        }
         
         public Snake()
         {
