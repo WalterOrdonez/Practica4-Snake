@@ -78,7 +78,7 @@ namespace Practica_Snake
         {
             int cod = buscarUsuario(nombre);
 
-            if (cod > 0)
+            if (cod >= 0)
             {
                 if (((Usuario)Usuarios[cod]).compararPass(pass))
                 {
