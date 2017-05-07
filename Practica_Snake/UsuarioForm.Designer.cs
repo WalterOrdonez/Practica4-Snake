@@ -47,6 +47,7 @@
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtUsuario.Location = new System.Drawing.Point(125, 40);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
@@ -57,6 +58,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblUsuario.Location = new System.Drawing.Point(48, 43);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(71, 23);
@@ -68,6 +70,7 @@
             this.txtNivel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
             this.txtNivel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNivel.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNivel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtNivel.Location = new System.Drawing.Point(125, 154);
             this.txtNivel.Name = "txtNivel";
             this.txtNivel.ReadOnly = true;
@@ -79,6 +82,7 @@
             // 
             this.lblNivel.AutoSize = true;
             this.lblNivel.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblNivel.Location = new System.Drawing.Point(48, 157);
             this.lblNivel.Name = "lblNivel";
             this.lblNivel.Size = new System.Drawing.Size(50, 23);
@@ -90,6 +94,7 @@
             this.txtPts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
             this.txtPts.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPts.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPts.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtPts.Location = new System.Drawing.Point(125, 207);
             this.txtPts.Name = "txtPts";
             this.txtPts.ReadOnly = true;
@@ -100,6 +105,7 @@
             // 
             this.lblPts.AutoSize = true;
             this.lblPts.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPts.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblPts.Location = new System.Drawing.Point(48, 210);
             this.lblPts.Name = "lblPts";
             this.lblPts.Size = new System.Drawing.Size(62, 23);
@@ -111,6 +117,7 @@
             this.txtTiempo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(103)))), ((int)(((byte)(130)))));
             this.txtTiempo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTiempo.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTiempo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtTiempo.Location = new System.Drawing.Point(398, 93);
             this.txtTiempo.Name = "txtTiempo";
             this.txtTiempo.ReadOnly = true;
@@ -121,6 +128,7 @@
             // 
             this.lblTiempo.AutoSize = true;
             this.lblTiempo.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTiempo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblTiempo.Location = new System.Drawing.Point(322, 96);
             this.lblTiempo.Name = "lblTiempo";
             this.lblTiempo.Size = new System.Drawing.Size(70, 23);
@@ -133,6 +141,7 @@
             this.btnIniciar.FlatAppearance.BorderSize = 0;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciar.Font = new System.Drawing.Font("Goudy Old Style", 21.75F);
+            this.btnIniciar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnIniciar.Location = new System.Drawing.Point(52, 337);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(140, 80);
@@ -147,6 +156,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Goudy Old Style", 21.75F);
+            this.btnSalir.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSalir.Location = new System.Drawing.Point(292, 337);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(140, 80);

@@ -11,15 +11,13 @@ namespace Practica_Snake
         Login login = new Login();
 
         public LoginForm()
-        {
-            /*
-            Thread hilo = new Thread(new ThreadStart(StartSplash));
+        {Thread hilo = new Thread(new ThreadStart(StartSplash));
             hilo.Start();
             Thread.Sleep(3000);
-            */
+
             InitializeComponent();
 
-            //hilo.Abort();
+            hilo.Abort();
         }
 
         private void StartSplash()
@@ -29,7 +27,13 @@ namespace Practica_Snake
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            ListaUsuarioSingleton lstUsuarioSingleton = ListaUsuarioSingleton.Instance;
+            ListaUsuarioSingleton lst = ListaUsuarioSingleton.Instance;
+
+            lst.LstUsuario.addUsuario("", "");
+            lst.LstUsuario.addUsuario("", "");
+            lst.LstUsuario.addUsuario("", "");
+            lst.LstUsuario.addUsuario("", "");
+            lst.LstUsuario.addUsuario("", "");
 
             pnlfrmRegistro.Size = new Size(520, 405);
             pnlfrmRegistro.Location = new Point(0, 100);

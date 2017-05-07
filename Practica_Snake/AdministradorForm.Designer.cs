@@ -35,13 +35,14 @@
             this.btnVerUsuarios = new System.Windows.Forms.Button();
             this.btnEliminarUsuarios = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.lstbxUsuarios = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(37, 43);
+            this.lblUsuario.Location = new System.Drawing.Point(12, 43);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(71, 23);
             this.lblUsuario.TabIndex = 0;
@@ -52,10 +53,10 @@
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(219)))), ((int)(((byte)(184)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(172, 43);
+            this.txtUsuario.Location = new System.Drawing.Point(124, 40);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(245, 29);
+            this.txtUsuario.Size = new System.Drawing.Size(346, 29);
             this.txtUsuario.TabIndex = 1;
             // 
             // btnTopT
@@ -65,7 +66,7 @@
             this.btnTopT.FlatAppearance.BorderSize = 0;
             this.btnTopT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopT.Font = new System.Drawing.Font("Goudy Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopT.Location = new System.Drawing.Point(129, 131);
+            this.btnTopT.Location = new System.Drawing.Point(35, 103);
             this.btnTopT.Name = "btnTopT";
             this.btnTopT.Size = new System.Drawing.Size(240, 45);
             this.btnTopT.TabIndex = 2;
@@ -80,7 +81,7 @@
             this.btnTopPts.FlatAppearance.BorderSize = 0;
             this.btnTopPts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopPts.Font = new System.Drawing.Font("Goudy Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTopPts.Location = new System.Drawing.Point(129, 187);
+            this.btnTopPts.Location = new System.Drawing.Point(35, 166);
             this.btnTopPts.Name = "btnTopPts";
             this.btnTopPts.Size = new System.Drawing.Size(240, 45);
             this.btnTopPts.TabIndex = 2;
@@ -95,7 +96,7 @@
             this.btnVerUsuarios.FlatAppearance.BorderSize = 0;
             this.btnVerUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerUsuarios.Font = new System.Drawing.Font("Goudy Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerUsuarios.Location = new System.Drawing.Point(129, 243);
+            this.btnVerUsuarios.Location = new System.Drawing.Point(35, 242);
             this.btnVerUsuarios.Name = "btnVerUsuarios";
             this.btnVerUsuarios.Size = new System.Drawing.Size(240, 45);
             this.btnVerUsuarios.TabIndex = 2;
@@ -110,7 +111,7 @@
             this.btnEliminarUsuarios.FlatAppearance.BorderSize = 0;
             this.btnEliminarUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarUsuarios.Font = new System.Drawing.Font("Goudy Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarUsuarios.Location = new System.Drawing.Point(129, 299);
+            this.btnEliminarUsuarios.Location = new System.Drawing.Point(35, 327);
             this.btnEliminarUsuarios.Name = "btnEliminarUsuarios";
             this.btnEliminarUsuarios.Size = new System.Drawing.Size(240, 45);
             this.btnEliminarUsuarios.TabIndex = 2;
@@ -125,7 +126,7 @@
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Goudy Old Style", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(129, 355);
+            this.btnCerrar.Location = new System.Drawing.Point(35, 417);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(240, 45);
             this.btnCerrar.TabIndex = 2;
@@ -133,12 +134,25 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // lstbxUsuarios
+            // 
+            this.lstbxUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstbxUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lstbxUsuarios.Font = new System.Drawing.Font("Goudy Old Style", 14.25F);
+            this.lstbxUsuarios.FormattingEnabled = true;
+            this.lstbxUsuarios.ItemHeight = 23;
+            this.lstbxUsuarios.Location = new System.Drawing.Point(313, 103);
+            this.lstbxUsuarios.Name = "lstbxUsuarios";
+            this.lstbxUsuarios.Size = new System.Drawing.Size(250, 345);
+            this.lstbxUsuarios.TabIndex = 3;
+            // 
             // AdministradorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
-            this.ClientSize = new System.Drawing.Size(550, 550);
+            this.ClientSize = new System.Drawing.Size(600, 550);
+            this.Controls.Add(this.lstbxUsuarios);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnEliminarUsuarios);
             this.Controls.Add(this.btnVerUsuarios);
@@ -165,5 +179,6 @@
         private System.Windows.Forms.Button btnVerUsuarios;
         private System.Windows.Forms.Button btnEliminarUsuarios;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ListBox lstbxUsuarios;
     }
 }

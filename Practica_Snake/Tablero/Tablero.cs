@@ -15,7 +15,7 @@ namespace Practica_Snake.Tablero
 
         public Tablero()
         {
-            setNivel(0);
+            setNivel(1);
         }
 
         public void setNivel(int nivel)
