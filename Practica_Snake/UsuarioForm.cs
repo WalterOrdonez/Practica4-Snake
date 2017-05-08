@@ -40,7 +40,7 @@ namespace Practica_Snake
             txtNivel.Text = u.getNivel().ToString();
             txtPts.Text = u.getPuntos().ToString();
             txtTiempo.Text = u.getTiempo().ToString();
-            juego = new Juego(Total, timer1, u, txtPts, txtNivel);
+            juego = new Juego(Total, timer1, u, txtPts, txtNivel,txtTiempo);
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -48,7 +48,6 @@ namespace Practica_Snake
             //juego = new Juego(txtTiempo);
             timer1.Start();
             //Creamos el delegado 
-
             ThreadStart delegado = new ThreadStart(play_juego);
             //Creamos la instancia del hilo 
             Thread hilo = new Thread(delegado);
@@ -72,6 +71,7 @@ namespace Practica_Snake
             Total = Convert.ToDouble(txtTiempo.Text);
             Total = Total + 1;
             txtTiempo.Text = Total.ToString();
+            
         }
 
         private void UsuarioForm_KeyDown_1(object sender, KeyEventArgs e)

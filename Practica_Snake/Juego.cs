@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Threading;
 
+
 namespace Practica_Snake
 {
     class Juego
@@ -17,9 +18,10 @@ namespace Practica_Snake
         Snake serpiente;
         TextBox txtPuntos;
         TextBox txtNivel;
+        TextBox txtTiempo;
         Tablero.Tablero tablero;
 
-        public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel)
+        public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel, TextBox txtTiempo)
         {
             this.velocidad = 1000;
             this.tiempo = tiempo;
@@ -29,82 +31,73 @@ namespace Practica_Snake
             this.timer=timer;
             this.txtNivel = txtNivel;
             this.txtPuntos = txtPuntos;
+            this.txtTiempo = txtTiempo;
             ganador = false;
+            txtNivel.Text = "1";
             serpiente = new Snake();
             tablero = new Tablero.Tablero();
             play = false;
         }
         public void parar()
         {
+            
             timer.Stop();
             play = false;
             usuario.setNivel(this.nivel);
-            int tiempo_int = Convert.ToInt32(this.tiempo);
+            int tiempo_int = Convert.ToInt32(txtTiempo.Text);
             usuario.setTiempo(tiempo_int);
             usuario.setPuntos(puntos);
+            if (txtNivel.InvokeRequired || txtPuntos.InvokeRequired)
+            {
+                //si es así entonces volvemos a llamar a CambiarProgreso pero esta vez a través del delegado 
+                //instanciamos el delegado indicandole el método que va a ejecutar 
+                mostrarDatosDelegado delegado = new mostrarDatosDelegado(mostrarDatosForm);
+                //ya que el delegado invocará a CambiarProgreso debemos indicarle los parámetros 
+                //invocamos el método a través del mismo contexto del formulario (this) y enviamos los parámetros 
+                txtNivel.Invoke(delegado); 
+            }
+            else
+            {
+                mostrarDatosForm();
+            }
+        }
+        delegate void mostrarDatosDelegado();
+        public void mostrarDatosForm()
+        {
             txtPuntos.Text = puntos.ToString();
             txtNivel.Text = nivel.ToString();
         }
         public void iniciar()
         {
             play=true;
+            tablero.setComida(0, 0);
             while (play && !ganador)
             {
                 
-                int x = serpiente._ultimo.getX();
-                int y = serpiente._ultimo.getY();
+                int x = serpiente._cabeza.getX();
+                int y = serpiente._cabeza.getY();
                 int[,] tab = tablero.getTablero();
-                switch (serpiente.getDireccion())
+                switch (tab[x, y])
                 {
-                    case Snake.abajo:
-                        switch (tab[x, y + 1])
-                        {
-                            case 1:
-                                play = false;
-                                break;
-                            case 2:
-                                serpiente.Crecer();
-                                break;
-                        }
-                    break;
-                    case Snake.arriba:
-                        switch (tab[x, y - 1])
-                        {
-                            case 1:
-                                play = false;
-                                break;
-                            case 2:
-                                serpiente.Crecer();
-                                break;
-                        }
-                    break;
-                    case Snake.derecha:
-                        switch (tab[x+1, y])
-                        {
-                            case 1:
-                                play = false;
-                                break;
-                            case 2:
-                                serpiente.Crecer();
-                                break;
-                        }
-                    break;
-                    case Snake.izquierda:
-                        switch (tab[x-1, y ])
-                        {
-                            case 1:
-                                play = false;
-                                break;
-                            case 2:
-                                serpiente.Crecer();
-                                break;
-                        }
-                    break;
+                    case 1:
+                        play = false;
+                        break;
+                    case 2:
+                        Comer();
+                        tablero.setComida(x, y);
+                        break;
                 }
+                actualizarDatos();
                 serpiente.Avanzar();
                 Thread.Sleep(velocidad);
             }
             parar();
+        }
+        public void actualizarDatos()
+        {
+            tablero.setSnake(this.serpiente);
+            tablero.enviarDatosConsola();
+            Console.WriteLine();
         }
         public bool getGanador()
         {
@@ -133,18 +126,33 @@ namespace Practica_Snake
         {
             puntos += 1;
             serpiente.Crecer();
-            txtPuntos.Text = puntos.ToString();
+            if (txtNivel.InvokeRequired || txtPuntos.InvokeRequired)
+            {
+                //si es así entonces volvemos a llamar a CambiarProgreso pero esta vez a través del delegado 
+                //instanciamos el delegado indicandole el método que va a ejecutar 
+                mostrarDatosDelegado delegado = new mostrarDatosDelegado(mostrarDatosForm);
+                //ya que el delegado invocará a CambiarProgreso debemos indicarle los parámetros 
+                //invocamos el método a través del mismo contexto del formulario (this) y enviamos los parámetros 
+                txtPuntos.Invoke(delegado);
+            }
+            else
+            {
+                mostrarDatosForm();
+            }
             switch (puntos)
             {
                 case 10:
                     nivel = 2;
                     tablero.setNivel(nivel);
+                    serpiente.setSerpienteNivel(nivel);
+                    velocidad = 600;
                     txtNivel.Text = nivel.ToString();
                     break;
                 case 20:
                     nivel = 3;
                     tablero.setNivel(nivel);
-                    velocidad = 600;
+                    serpiente.setSerpienteNivel(nivel);
+                    velocidad = 200;
                     Console.WriteLine("nivel 2");
                     txtNivel.Text = nivel.ToString();
                     break;

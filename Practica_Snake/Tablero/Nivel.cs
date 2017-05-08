@@ -57,14 +57,14 @@ namespace Practica_Snake.Tablero
                 /*
                  * SETEAR NIVEL 2
                  * */
-                nivel3.Add(new Coordenadas(0, i));
-                nivel3.Add(new Coordenadas(11, i));
-                nivel3.Add(new Coordenadas(0, i + 8));
-                nivel3.Add(new Coordenadas(11, i + 8));
-                nivel3.Add(new Coordenadas(i, 0));
-                nivel3.Add(new Coordenadas(i, 11));
-                nivel3.Add(new Coordenadas(i + 8, 0));
-                nivel3.Add(new Coordenadas(i + 8, 11));
+                nivel2.Add(new Coordenadas(0, i));
+                nivel2.Add(new Coordenadas(11, i));
+                nivel2.Add(new Coordenadas(0, i + 8));
+                nivel2.Add(new Coordenadas(11, i + 8));
+                nivel2.Add(new Coordenadas(i, 0));
+                nivel2.Add(new Coordenadas(i, 11));
+                nivel2.Add(new Coordenadas(i + 8, 0));
+                nivel2.Add(new Coordenadas(i + 8, 11));
                 /*
                  * SETEAR NIVEL 3
                  * */
@@ -80,8 +80,8 @@ namespace Practica_Snake.Tablero
 
             for (int i = 4; i < 9; i++)
             {
-                nivel3.Add(new Coordenadas(3, i));
-                nivel3.Add(new Coordenadas(8, i));
+                nivel3.Add(new Coordenadas(3, i+2));
+                nivel3.Add(new Coordenadas(8, i+2));
             }
         }
     }

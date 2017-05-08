@@ -11,11 +11,13 @@ namespace Practica_Snake.Tablero
     {
         private int ADRESS = 888;
         private int NIVEL = 1;
+        private Coordenadas comida;
         private int[,] tablero = new int[12, 12];
 
         public Tablero()
         {
             setNivel(1);
+            comida = new Coordenadas(0, 0);
         }
         public int[,] getTablero()
         {
@@ -58,6 +60,7 @@ namespace Practica_Snake.Tablero
                             tablero[i, j] = 0;
                         }
                     }
+                    tablero[comida._x, comida._y]=2;
                     break;
             }
         }
@@ -96,7 +99,10 @@ namespace Practica_Snake.Tablero
             else
             {
                 tablero[x, y] = 2;
+                comida._x=x;
+                comida._y=y;
             }
+
         }
 
         public void enviarDatos()
@@ -107,7 +113,7 @@ namespace Practica_Snake.Tablero
                 //MessageBox.Show("DATO " + 1);
                 //PortAccess.Output(ADRESS, 3);
                 //MessageBox.Show("DATO " + 3);
-                Console.Write("1\t");
+                //Console.Write("1\t");
 
                 for (int j = 0; j < 12; j++)
                 {
@@ -123,7 +129,18 @@ namespace Practica_Snake.Tablero
                 //MessageBox.Show("DATO " + 0);
                 //PortAccess.Output(ADRESS, 2);
                 //MessageBox.Show("DATO " + 2);
-                Console.WriteLine("0");
+                //Console.WriteLine("0");
+            }
+        }
+        public void enviarDatosConsola()
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    Console.Write(tablero[j, i] + "\t");
+                }
+                Console.WriteLine();
             }
         }
     }

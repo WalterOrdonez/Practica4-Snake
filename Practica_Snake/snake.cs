@@ -33,12 +33,12 @@ namespace Practica_Snake
         public Snake()
         {
             Cabeza = new nodoSnake();
-            Cabeza.setX(6);
-            Cabeza.setY(5);
+            Cabeza.setX(2);
+            Cabeza.setY(1);
+            Ultimo = Cabeza;
             direccion = 1;
             Crecer();
             Crecer();
-            Ultimo = Cabeza.getSiguiente().getSiguiente();
         }
         public void setDireccion(int direccion)
         {
@@ -47,41 +47,15 @@ namespace Practica_Snake
         public void Crecer()
         {
             nodoSnake nuevo=new nodoSnake();
-            int x = Cabeza.getX();
-            int y = Cabeza.getY();
+            int x = Ultimo.getX();
+            int y = Ultimo.getY();
             nuevo.setX(x);
             nuevo.setY(y);
 
-            //Mover Cabeza del Snake antes de agregar los nuevos nodos
-            switch (direccion)
-            {
-                case derecha:
-                    Cabeza.setX(Cabeza.getX() + 1);
-                    if(Cabeza.getX()>11)
-                    {
-                        Cabeza.setX(0);
-                    }
-                    break;
-                case izquierda:
-                    Cabeza.setX(Cabeza.getX() - 1);
-                    break;
-                case arriba:
-                    Cabeza.setY(Cabeza.getY() - 1);
-                    break;
-                case abajo:
-                    Cabeza.setY(Cabeza.getY() + 1);
-                    {
-                        Cabeza.setY(0);
-                    }
-                    break;
-            }
             //Agregar el nuevo nodo
-            if(Cabeza.getSiguiente()!=null){
-                Cabeza.getSiguiente().setAnterior(nuevo);
-            }
-            nuevo.setSiguiente(Cabeza.getSiguiente());
-            nuevo.setAnterior(Cabeza);
-            Cabeza.setSiguiente(nuevo);
+            Ultimo.setSiguiente(nuevo);
+            nuevo.setAnterior(Ultimo);
+            Ultimo = nuevo;
         }
         public void Avanzar()
         {
@@ -95,6 +69,7 @@ namespace Practica_Snake
                     while (Actual != Cabeza)
                     {
                         Actual.setX(Actual.getAnterior().getX());
+                        Actual.setY(Actual.getAnterior().getY());
                         Actual = Actual.getAnterior();
                     }
                     Cabeza.setX(Cabeza.getX() + 1);
@@ -108,6 +83,7 @@ namespace Practica_Snake
                     while (Actual != Cabeza)
                     {
                         Actual.setX(Actual.getAnterior().getX());
+                        Actual.setY(Actual.getAnterior().getY());
                         Actual = Actual.getAnterior();
                     }
                     Cabeza.setX(Cabeza.getX() - 1);
@@ -121,6 +97,7 @@ namespace Practica_Snake
                     while (Actual != Cabeza)
                     {
                         Actual.setY(Actual.getAnterior().getY());
+                        Actual.setX(Actual.getAnterior().getX());
                         Actual = Actual.getAnterior();
                     }
                     Cabeza.setY(Cabeza.getY() - 1);
@@ -134,6 +111,7 @@ namespace Practica_Snake
                     while (Actual != Cabeza)
                     {
                         Actual.setY(Actual.getAnterior().getY());
+                        Actual.setX(Actual.getAnterior().getX());
                         Actual = Actual.getAnterior();
                     }
                     Cabeza.setY(Cabeza.getY() + 1);
@@ -143,8 +121,36 @@ namespace Practica_Snake
                     }
                     break;
             }
-            Console.WriteLine("X:"+Cabeza.getX().ToString() + " - Y:" + Cabeza.getY().ToString());
-            Console.WriteLine("Xf:" +Ultimo.getX().ToString() + " - Yf:" + Ultimo.getY().ToString());
+            //Console.WriteLine("X:"+Cabeza.getX().ToString() + " - Y:" + Cabeza.getY().ToString());
+            //Console.WriteLine("Xf:" +Ultimo.getX().ToString() + " - Yf:" + Ultimo.getY().ToString());
+        }
+        public void setSerpienteNivel(int nivel)
+        {
+            nodoSnake Actual = Ultimo;
+            switch (nivel){
+                case 2:
+                    while (Actual != Cabeza)
+                    {
+                        Actual.setY(5);
+                        Actual.setX(0);
+                        Actual = Actual.getAnterior();
+                    }
+                    Cabeza.setX(0);
+                    Cabeza.setY(5);
+                    direccion = Snake.derecha;
+                break;
+                case 3:
+                    while (Actual != Cabeza)
+                    {
+                        Actual.setY(0);
+                        Actual.setX(5);
+                        Actual = Actual.getAnterior();
+                    }
+                    Cabeza.setX(5);
+                    Cabeza.setY(0);
+                    direccion = Snake.izquierda;
+                break;
+            }
         }
     }
 }
