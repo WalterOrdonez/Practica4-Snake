@@ -145,7 +145,7 @@ namespace Practica_Snake
 
         public bool validarAdmin(string user, string pass)
         {
-            if (Administrador.getNombre().Equals(user) && Administrador.getPass().Equals(pass))
+            if (Administrador.getNombre().Equals(user,StringComparison.OrdinalIgnoreCase) && Administrador.getPass().Equals(pass))
                 return true;
             else
                 return false;

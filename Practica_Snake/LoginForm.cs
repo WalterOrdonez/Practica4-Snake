@@ -29,11 +29,11 @@ namespace Practica_Snake
         {
             ListaUsuarioSingleton lst = ListaUsuarioSingleton.Instance;
 
-            lst.LstUsuario.addUsuario("", "");
-            lst.LstUsuario.addUsuario("", "");
-            lst.LstUsuario.addUsuario("", "");
-            lst.LstUsuario.addUsuario("", "");
-            lst.LstUsuario.addUsuario("", "");
+            lst.LstUsuario.addUsuario("Marco", "marco");
+            lst.LstUsuario.addUsuario("Mario", "mario");
+            lst.LstUsuario.addUsuario("Wilson", "wilson");
+            lst.LstUsuario.addUsuario("Walter", "walter");
+            lst.LstUsuario.addUsuario("Wally", "wally");
 
             pnlfrmRegistro.Size = new Size(520, 405);
             pnlfrmRegistro.Location = new Point(0, 100);

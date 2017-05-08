@@ -24,7 +24,7 @@ namespace Practica_Snake
         public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel, TextBox txtTiempo)
         {
             this.velocidad = 1000;
-            this.tiempo = tiempo;
+            this.tiempo = 0;
             this.puntos = 0;
             this.nivel = 1;
             this.usuario = usuario;

@@ -37,9 +37,9 @@ namespace Practica_Snake
              * */
             Usuario u = (Usuario) lst.LstUsuario._usuarios[id];
             txtUsuario.Text = u.getNombre();
-            txtNivel.Text = u.getNivel().ToString();
-            txtPts.Text = u.getPuntos().ToString();
-            txtTiempo.Text = u.getTiempo().ToString();
+            txtNivel.Text = "1";
+            txtPts.Text = "0";
+            txtTiempo.Text = "0";
             juego = new Juego(Total, timer1, u, txtPts, txtNivel,txtTiempo);
         }
 
