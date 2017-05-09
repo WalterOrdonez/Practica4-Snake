@@ -19,9 +19,10 @@ namespace Practica_Snake
         TextBox txtPuntos;
         TextBox txtNivel;
         TextBox txtTiempo;
+        Panel panel;
         Tablero.Tablero tablero;
 
-        public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel, TextBox txtTiempo)
+        public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel, TextBox txtTiempo, Panel panel)
         {
             this.velocidad = 1000;
             this.tiempo = 0;
@@ -32,6 +33,7 @@ namespace Practica_Snake
             this.txtNivel = txtNivel;
             this.txtPuntos = txtPuntos;
             this.txtTiempo = txtTiempo;
+            this.panel = panel;
             ganador = false;
             txtNivel.Text = "1";
             serpiente = new Snake();
@@ -73,7 +75,6 @@ namespace Practica_Snake
             tablero.setComida(0, 0);
             while (play && !ganador)
             {
-                
                 int x = serpiente._cabeza.getX();
                 int y = serpiente._cabeza.getY();
                 int[,] tab = tablero.getTablero();
@@ -96,8 +97,23 @@ namespace Practica_Snake
         public void actualizarDatos()
         {
             tablero.setSnake(this.serpiente);
-            tablero.enviarDatosConsola();
+
+            //Creamos el delegado 
+            ThreadStart delegado = new ThreadStart(enviarDatosPuerto);
+            //Creamos la instancia del hilo 
+            Thread hilo = new Thread(delegado);
+            //Iniciamos el hilo 
+            hilo.Start(); 
+
+
+            //tablero.enviarDatosConsola();
+            tablero.limpiar(panel);
+            tablero.pintar(panel);
             Console.WriteLine();
+        }
+        public void enviarDatosPuerto()
+        {
+            tablero.enviarDatos();
         }
         public bool getGanador()
         {

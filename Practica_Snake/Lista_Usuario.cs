@@ -60,6 +60,10 @@ namespace Practica_Snake
             if (posicion>=0)
             {
                 Usuarios.RemoveAt(posicion);
+                posicion = buscarUsuario_Tiempo(Nombre);
+                Tiempos.RemoveAt(posicion);
+                posicion = buscarUsuario_Puntos(Nombre);
+                Puntuaciones.RemoveAt(posicion);
             }
         }
         public int buscarUsuario(String Nombre)
@@ -69,6 +73,30 @@ namespace Practica_Snake
                 if (u.compararNombres(Nombre))
                 {
                     return Usuarios.IndexOf(u);
+                }
+            }
+            return -1;
+        }
+
+        public int buscarUsuario_Puntos(String Nombre)
+        {
+            foreach (Usuario u in Puntuaciones)
+            {
+                if (u.compararNombres(Nombre))
+                {
+                    return Puntuaciones.IndexOf(u);
+                }
+            }
+            return -1;
+        }
+
+        public int buscarUsuario_Tiempo(String Nombre)
+        {
+            foreach (Usuario u in Tiempos)
+            {
+                if (u.compararNombres(Nombre))
+                {
+                    return Tiempos.IndexOf(u);
                 }
             }
             return -1;

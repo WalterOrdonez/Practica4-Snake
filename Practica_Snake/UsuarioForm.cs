@@ -28,6 +28,7 @@ namespace Practica_Snake
         {
             InitializeComponent();
             timer1.Interval = 1000;
+            mostrarTablero();
         }
 
         private void UsuarioForm_Load(object sender, EventArgs e)
@@ -40,9 +41,9 @@ namespace Practica_Snake
             txtNivel.Text = "1";
             txtPts.Text = "0";
             txtTiempo.Text = "0";
-            juego = new Juego(Total, timer1, u, txtPts, txtNivel,txtTiempo);
-        }
+            juego = new Juego(Total, timer1, u, txtPts, txtNivel,txtTiempo,panel1);
 
+        }
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             //juego = new Juego(txtTiempo);
@@ -63,7 +64,7 @@ namespace Practica_Snake
         private void btnSalir_Click(object sender, EventArgs e)
         {
             juego.parar();
-
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -101,6 +102,26 @@ namespace Practica_Snake
         private void txtNivel_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void mostrarTablero()
+        {
+            for(int x=0;x<12;x++)
+            {
+                for (int y = 0; y < 12;y++ )
+                {
+                    Label lbl = new Label();
+                    lbl.Name = x.ToString()+"-"+ y.ToString();
+                    lbl.Size=new Size(40,40);
+                    lbl.BorderStyle = BorderStyle.FixedSingle;
+                    lbl.Location = new Point(x*40,y*40);
+                    panel1.Controls.Add(lbl);
+                }
+            }
         }
     }
 }
