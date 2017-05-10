@@ -41,7 +41,7 @@ namespace Practica_Snake
             txtNivel.Text = "1";
             txtPts.Text = "0";
             txtTiempo.Text = "0";
-            juego = new Juego(Total, timer1, u, txtPts, txtNivel,txtTiempo,panel1);
+            juego = new Juego(Total, timer1, u, txtPts, txtNivel,txtTiempo,panel1,btnSalir);
 
         }
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace Practica_Snake
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            juego.parar();
+            
             this.Close();
         }
 

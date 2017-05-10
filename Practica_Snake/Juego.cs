@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using Microsoft.VisualBasic;
 
 
 namespace Practica_Snake
@@ -20,9 +21,10 @@ namespace Practica_Snake
         TextBox txtNivel;
         TextBox txtTiempo;
         Panel panel;
+        Button btn_salir;
         Tablero.Tablero tablero;
 
-        public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel, TextBox txtTiempo, Panel panel)
+        public Juego(double tiempo, System.Windows.Forms.Timer timer, Usuario usuario, TextBox txtPuntos, TextBox txtNivel, TextBox txtTiempo, Panel panel,Button btn_salir)
         {
             this.velocidad = 1000;
             this.tiempo = 0;
@@ -34,6 +36,7 @@ namespace Practica_Snake
             this.txtPuntos = txtPuntos;
             this.txtTiempo = txtTiempo;
             this.panel = panel;
+            this.btn_salir = btn_salir;
             ganador = false;
             txtNivel.Text = "1";
             serpiente = new Snake();
@@ -42,26 +45,34 @@ namespace Practica_Snake
         }
         public void parar()
         {
-            
             timer.Stop();
             play = false;
             usuario.setNivel(this.nivel);
-            int tiempo_int = Convert.ToInt32(txtTiempo.Text);
+            double tiempo_d = Convert.ToDouble(txtTiempo.Text);
+            int tiempo_int = Convert.ToInt32(tiempo_d);
             usuario.setTiempo(tiempo_int);
             usuario.setPuntos(puntos);
-            if (txtNivel.InvokeRequired || txtPuntos.InvokeRequired)
+            if (txtNivel.InvokeRequired || txtPuntos.InvokeRequired||btn_salir.InvokeRequired)
             {
                 //si es así entonces volvemos a llamar a CambiarProgreso pero esta vez a través del delegado 
                 //instanciamos el delegado indicandole el método que va a ejecutar 
                 mostrarDatosDelegado delegado = new mostrarDatosDelegado(mostrarDatosForm);
+                habilitarBotonDelegado delegadoBoton = new habilitarBotonDelegado(habilitarBoton);
                 //ya que el delegado invocará a CambiarProgreso debemos indicarle los parámetros 
                 //invocamos el método a través del mismo contexto del formulario (this) y enviamos los parámetros 
-                txtNivel.Invoke(delegado); 
+                txtNivel.Invoke(delegado);
+                btn_salir.Invoke(delegadoBoton);
             }
             else
             {
                 mostrarDatosForm();
+                habilitarBoton();
             }
+        }
+        delegate void habilitarBotonDelegado();
+        public void habilitarBoton()
+        {
+            btn_salir.Enabled = true;
         }
         delegate void mostrarDatosDelegado();
         public void mostrarDatosForm()
@@ -71,8 +82,14 @@ namespace Practica_Snake
         }
         public void iniciar()
         {
+            
             play=true;
             tablero.setComida(0, 0);
+            //Creamos el delegado con el nombre del metodo a ejecutar
+            ThreadStart delegado = new ThreadStart(enviarDatosPuerto);
+            Thread hilo = new Thread(delegado);
+            hilo.Start();
+
             while (play && !ganador)
             {
                 int x = serpiente._cabeza.getX();
@@ -98,14 +115,6 @@ namespace Practica_Snake
         {
             tablero.setSnake(this.serpiente);
 
-            //Creamos el delegado 
-            ThreadStart delegado = new ThreadStart(enviarDatosPuerto);
-            //Creamos la instancia del hilo 
-            Thread hilo = new Thread(delegado);
-            //Iniciamos el hilo 
-            hilo.Start(); 
-
-
             //tablero.enviarDatosConsola();
             tablero.limpiar(panel);
             tablero.pintar(panel);
@@ -113,7 +122,19 @@ namespace Practica_Snake
         }
         public void enviarDatosPuerto()
         {
-            tablero.enviarDatos();
+            string tiempo=Interaction.InputBox("Tiempo", "Tiempo pantalla", "Default Text");
+            int tiempoSleep;
+            try
+            {
+                tiempoSleep=Convert.ToInt32(tiempo);
+            }catch(Exception e)
+            {
+                tiempoSleep = 0;
+            }
+            while(play && !ganador)
+            {
+                tablero.enviarDatos(tiempoSleep);
+            }
         }
         public bool getGanador()
         {

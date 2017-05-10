@@ -107,16 +107,19 @@ namespace Practica_Snake.Tablero
 
         }
 
-        public void enviarDatos()
+        public void enviarDatos(int Tiempo)
         {
             for (int i = 0; i < 12; i++)
             {
+                //limpiar el puerto
+                PortAccess.Output(ADRESS, 0);
+
                 PortAccess.Output(ADRESS, 1);
                 //MessageBox.Show("DATO " + 1);
                 PortAccess.Output(ADRESS, 3);
                 //MessageBox.Show("RELOJ " + 3);
                 //Console.Write("1\t");
-                //Thread.Sleep(200);
+                Thread.Sleep(Tiempo);
 
                 for (int j = 0; j < 12; j++)
                 {
@@ -124,17 +127,19 @@ namespace Practica_Snake.Tablero
                     //MessageBox.Show("DATO " + tablero[i, j]);
                     PortAccess.Output(ADRESS, tablero[i, j] + 2);
                     //MessageBox.Show("RELOJ " + tablero[i, j] + 2);
-
-                    Console.Write(tablero[i, j] + "\t");
-                    //Thread.Sleep(200);
+                    
+                    //Console.Write(tablero[i, j] + "\t");
+                    Thread.Sleep(Tiempo);
                 }
 
                 PortAccess.Output(ADRESS, 0);
                 //MessageBox.Show("DATO " + 0);
                 PortAccess.Output(ADRESS, 2);
+                Thread.Sleep(Tiempo);
                 //MessageBox.Show("RELOJ " + 2);
                 //MessageBox.Show("FILA " + i);
                 //Console.WriteLine("0");
+                //Console.WriteLine("");
             }
         }
         public void enviarDatosConsola()
