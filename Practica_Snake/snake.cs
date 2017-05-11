@@ -148,7 +148,7 @@ namespace Practica_Snake
                     }
                     Cabeza.setX(5);
                     Cabeza.setY(0);
-                    direccion = Snake.izquierda;
+                    direccion = Snake.abajo;
                 break;
             }
         }

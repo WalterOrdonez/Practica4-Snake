@@ -52,8 +52,13 @@ namespace Practica_Snake
             timer.Stop();
             play = false;
             usuario.setNivel(this.nivel);
-            double tiempo_d = Convert.ToDouble(txtTiempo.Text);
-            int tiempo_int = Convert.ToInt32(tiempo_d);
+            int tiempo_int;
+            try
+            {
+                tiempo_int = Convert.ToInt32(txtTiempo.Text);
+            }catch(Exception e){
+                tiempo_int=0;
+            }
             usuario.setTiempo(tiempo_int);
             usuario.setPuntos(puntos);
             if (txtNivel.InvokeRequired || txtPuntos.InvokeRequired||btn_salir.InvokeRequired)
@@ -190,18 +195,43 @@ namespace Practica_Snake
                     tablero.setNivel(nivel);
                     serpiente.setSerpienteNivel(nivel);
                     velocidad = 600;
-                    txtNivel.Text = nivel.ToString();
+                    if (txtNivel.InvokeRequired)
+                    {
+                        //si es así entonces volvemos a llamar a CambiarProgreso pero esta vez a través del delegado 
+                        //instanciamos el delegado indicandole el método que va a ejecutar 
+                        mostrarDatosDelegado delegado = new mostrarDatosDelegado(mostrarDatosForm);
+                        //ya que el delegado invocará a CambiarProgreso debemos indicarle los parámetros 
+                        //invocamos el método a través del mismo contexto del formulario (this) y enviamos los parámetros 
+                        txtNivel.Invoke(delegado);
+                    }
+                    else
+                    {
+                        mostrarDatosForm();
+                    }
                     break;
-                case 20:
+                case 15:
                     nivel = 3;
                     tablero.setNivel(nivel);
                     serpiente.setSerpienteNivel(nivel);
-                    velocidad = 200;
+                    velocidad = 400;
                     Console.WriteLine("nivel 2");
-                    txtNivel.Text = nivel.ToString();
+                    if (txtNivel.InvokeRequired)
+                    {
+                        //si es así entonces volvemos a llamar a CambiarProgreso pero esta vez a través del delegado 
+                        //instanciamos el delegado indicandole el método que va a ejecutar 
+                        mostrarDatosDelegado delegado = new mostrarDatosDelegado(mostrarDatosForm);
+                        //ya que el delegado invocará a CambiarProgreso debemos indicarle los parámetros 
+                        //invocamos el método a través del mismo contexto del formulario (this) y enviamos los parámetros 
+                        txtNivel.Invoke(delegado);
+                    }
+                    else
+                    {
+                        mostrarDatosForm();
+                    }
                     break;
-                case 30:
+                case 20:
                     ganador = true;
+                    MessageBox.Show("Has GANADO");
                     break;
             }
         }
