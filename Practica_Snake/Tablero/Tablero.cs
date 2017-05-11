@@ -112,30 +112,37 @@ namespace Practica_Snake.Tablero
             for (int i = 0; i < 12; i++)
             {
                 //limpiar el puerto
-                PortAccess.Output(ADRESS, 0);
+                //PortAccess.Output(ADRESS, 0);
 
-                PortAccess.Output(ADRESS, 1);
-                //MessageBox.Show("DATO " + 1);
-                PortAccess.Output(ADRESS, 3);
+                //PortAccess.Output(ADRESS, 1);
+                ////MessageBox.Show("DATO " + 1);
+                //PortAccess.Output(ADRESS, 3);
                 //MessageBox.Show("RELOJ " + 3);
                 //Console.Write("1\t");
-                Thread.Sleep(Tiempo);
+                //Thread.Sleep(Tiempo);
 
                 for (int j = 0; j < 12; j++)
                 {
-                    PortAccess.Output(ADRESS, tablero[i, j]);
-                    //MessageBox.Show("DATO " + tablero[i, j]);
-                    PortAccess.Output(ADRESS, tablero[i, j] + 2);
-                    //MessageBox.Show("RELOJ " + tablero[i, j] + 2);
+                    int dato=tablero[i, j];
+                    if(dato>1){
+                        dato=1;
+                    }
+                        PortAccess.Output(ADRESS, dato);
+                        //MessageBox.Show("DATO " + tablero[i, j]);
+                        PortAccess.Output(ADRESS, dato + 2);
+                        //MessageBox.Show("RELOJ " + tablero[i, j] + 2);
                     
-                    //Console.Write(tablero[i, j] + "\t");
-                    Thread.Sleep(Tiempo);
+                        //Console.Write(tablero[i, j] + "\t");
+                        Thread.Sleep(Tiempo);
                 }
 
-                PortAccess.Output(ADRESS, 0);
-                //MessageBox.Show("DATO " + 0);
-                PortAccess.Output(ADRESS, 2);
-                Thread.Sleep(Tiempo);
+                //PortAccess.Output(ADRESS, 0);
+                ////MessageBox.Show("DATO " + 0);
+                //PortAccess.Output(ADRESS, 2);
+                //PortAccess.Output(ADRESS, 0);
+                //PortAccess.Output(ADRESS, 2);
+                //PortAccess.Output(ADRESS, 0);
+                //Thread.Sleep(Tiempo);
                 //MessageBox.Show("RELOJ " + 2);
                 //MessageBox.Show("FILA " + i);
                 //Console.WriteLine("0");
@@ -155,22 +162,38 @@ namespace Practica_Snake.Tablero
         }
         public void pintar(Panel panel1)
         {
-            for (int i = 0; i < 12; i++)
+            bool salida=false;
+            try
             {
-                for (int j = 0; j < 12; j++)
+                for (int i = 0; i < 12; i++)
                 {
-                    Control control = panel1.Controls.Find(i.ToString()+"-"+ j.ToString(), false)[0];
-                    Label lbl = (Label)control;
-                    switch (tablero[i, j])
+                    if (salida)
                     {
-                        case 1:
-                            lbl.BackColor = Color.Green;
+                        break;
+                    }
+                    for (int j = 0; j < 12; j++)
+                    {
+                        if (salida)
+                        {
                             break;
-                        case 2:
-                            lbl.BackColor = Color.Blue;
-                            break;
+                        }
+                        Control control = panel1.Controls.Find(i.ToString() + "-" + j.ToString(), false)[0];
+                        Label lbl = (Label)control;
+                        switch (tablero[i, j])
+                        {
+                            case 1:
+                                lbl.BackColor = Color.Green;
+                                break;
+                            case 2:
+                                lbl.BackColor = Color.Blue;
+                                break;
+                        }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                salida = true;
             }
         }
         public void limpiar(Panel panel1)
