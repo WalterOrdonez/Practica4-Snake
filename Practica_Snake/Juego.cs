@@ -8,12 +8,15 @@ namespace Practica_Snake
 {
     class Juego
     {
+        string tiempo_pausa;
         int puntos;
         double tiempo;
         int nivel;
         int velocidad;
         Usuario usuario;
         System.Windows.Forms.Timer timer;
+        ThreadStart delegadoDatosPuerto;
+        Thread hiloDatosPuerto;
         bool ganador;
         bool play;
         Snake serpiente;
@@ -45,6 +48,7 @@ namespace Practica_Snake
         }
         public void parar()
         {
+            hiloDatosPuerto.Abort();
             timer.Stop();
             play = false;
             usuario.setNivel(this.nivel);
@@ -82,14 +86,18 @@ namespace Practica_Snake
         }
         public void iniciar()
         {
-            
+            tiempo_pausa = Interaction.InputBox("Tiempo", "Tiempo pantalla", "0");
             play=true;
             tablero.setComida(0, 0);
             //Creamos el delegado con el nombre del metodo a ejecutar
-            ThreadStart delegado = new ThreadStart(enviarDatosPuerto);
-            Thread hilo = new Thread(delegado);
-            hilo.Start();
-
+            delegadoDatosPuerto = new ThreadStart(enviarDatosPuerto);
+            hiloDatosPuerto = new Thread(delegadoDatosPuerto);
+            hiloDatosPuerto.Start();
+            //for (int i = 0; i < 20000;i++ )
+            //{
+            //    enviarDatosPuerto();
+            //}
+            
             while (play && !ganador)
             {
                 int x = serpiente._cabeza.getX();
@@ -122,11 +130,10 @@ namespace Practica_Snake
         }
         public void enviarDatosPuerto()
         {
-            string tiempo=Interaction.InputBox("Tiempo", "Tiempo pantalla", "Default Text");
             int tiempoSleep;
             try
             {
-                tiempoSleep=Convert.ToInt32(tiempo);
+                tiempoSleep=Convert.ToInt32(tiempo_pausa);
             }catch(Exception e)
             {
                 tiempoSleep = 0;
